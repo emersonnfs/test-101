@@ -1,13 +1,13 @@
 import styled from 'styled-components'
 import Estampa from '../img/estampaTest2.jpg'
 import Vestido from '../img/vestido.png'
+import Tesourinha from '../img/tesourinha.png'
 
 export const Img = styled.img`
-    --size : 46%;
-    width: 50%;
-    height: 50%;
+    width: 28%;
+    height: 28%;
     background-image: url(${Estampa});
-    background-size: var(--size);
+    background-size: 70%;
     background-repeat: repeat;
     -webkit-mask-image: url(${Vestido}) center/cover ;
     mask-image: url(${Vestido}) center/cover;
@@ -15,47 +15,45 @@ export const Img = styled.img`
 
 export const DivGeral = styled.div`
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: fit-content;
-    width: fit-content;
+    height: 100%;
+    width: 100%;
     background-color: #f5f5f5;
 `
 
-export const DivSlider = styled.div`
-    .slider {
-        -webkit-appearance: none;  /* Override default CSS styles */
+export const Slider = styled.input`
+    width: 25%;
+    height: 10px;
+    background-color: #d3d3d3;
+    -webkit-appearance: none;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    &:hover {
+        opacity: 1;
+    }
+    &::-webkit-slider-thumb {
+        -webkit-appearance: none;
         appearance: none;
-        width: 200px;
-        height: 25px; /* Specified height */
-        background: #d3d3d3; /* Grey background */
-        outline: none; /* Remove outline */
-        opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
-        -webkit-transition: .2s; /* 0.2 seconds transition on hover */
-        transition: opacity .2s;
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        background-image: url(${Tesourinha});
+        background-size: 100%;
+        cursor: pointer;
     }
-
-    /* Mouse-over effects */
-    .slider:hover {
-        opacity: 1; /* Fully shown on mouse-over */
-    }
-
-    /* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
-    /* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
-    .slider::-webkit-slider-thumb {
-        -webkit-appearance: none; /* Override default look */
-        appearance: none;
-        width: 25px; /* Set a specific slider handle width */
-        height: 25px; /* Slider handle height */
-        background: #04AA6D; /* Green background */
-        cursor: pointer; /* Cursor on hover */
-    }
-
-    .slider::-moz-range-thumb {
-        width: 25px; /* Set a specific slider handle width */
-        height: 25px; /* Slider handle height */
-        background: #04AA6D; /* Green background */
-        cursor: pointer; /* Cursor on hover */
+    &::-moz-range-thumb {
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        background-image: url(${Tesourinha});
+        background-size: 100%;
+        cursor: pointer;
     }
 `
-

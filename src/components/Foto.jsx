@@ -1,8 +1,7 @@
 import React from "react";
 import Vestido from '../img/vestido.png';
 //import Estampa from '../img/estampaTest.jpg';
-import { Img, DivGeral, DivSlider } from "../style/styled";
-//import RangeSlider from 'react-range-slider-input';
+import { Img, DivGeral, Slider } from "../style/styled";
 
 
 
@@ -19,14 +18,16 @@ export default function Foto() {
         objeto.style.backgroundPosition = mousex + 'px ' + mousey + 'px';
     });
 
+    const zoom = () => {
+        const objeto = document.getElementById('module');
+        const slider = document.getElementById('myRange');
+        objeto.style.backgroundSize = slider.value + '%';
+    }
+
     return (
         <DivGeral>
-            <div>
-                <Img src={Vestido} alt='camiseta' class='module' id='module'/>
-            </div>
-            <DivSlider class='sliderContainer'>
-                <input type='range' min='7' max ='100' valeu='47' step='1' id='myRange' class='slider' />
-            </DivSlider>
+            <Img src={Vestido} alt='camiseta' id='module'/>
+            <Slider type="range" min="20" max="120" id="myRange" onInput={zoom} />    
         </DivGeral>
     )
 }
